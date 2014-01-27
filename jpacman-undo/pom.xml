@@ -41,6 +41,15 @@
                 <role>Developer</role>
             </roles>
         </developer>
+         <developer>
+            <id>jerryhuang0123</id>
+            <name>Jerry Huang</name>
+            <email>jerryhuang0123@hotmail.com</email>
+            <organization>UBC</organization>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
     </developers>
 
     <dependencies>
