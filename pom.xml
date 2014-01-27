@@ -33,7 +33,22 @@
             </roles>
         </developer>
         <developer>
-            <id>EXAMPLE</id>
+            <id>g21-ck</id>
+            <name>Chun Kiet Leong</name>
+            <email>kiet5629@hotmail.com</email>
+            <organization>UBC</organization>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+         <developer>
+            <id>jerryhuang0123</id>
+            <name>Jerry Huang</name>
+            <email>jerryhuang0123@hotmail.com</email>
+            <organization>UBC</organization>
+            <roles>
+                <role>Developer</role>
+            </roles>
         </developer>
     </developers>
 
