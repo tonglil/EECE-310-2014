@@ -1,0 +1,78 @@
+STORY 7 – UNDO:
+As a player,
+I want to be able to undo a move I regret, including all ghost moves made since my previous move;
+So that I can continue the game in the state just before my last move.
+
+Scenario S7.1: Undo left
+Given the game is suspended,
+  and the Pacman's previous action was 'move left';
+When I press undo;
+Then the Pacman moves back right,
+  if the Pacman ate anything:
+    the food is put back,
+    points are reversed,
+  the ghosts undo position to one time unit ago.
+
+Scenario S7.2: Undo Right
+Given the game is suspended,
+  and the Pacman's previous action was 'move right';
+When I press undo;
+Then the Pacman moves back left,
+  if the Pacman ate anything:
+    the food is put back,
+    points are reversed,
+  the ghosts undo position to one time unit ago.
+
+Scenario S7.3: Undo No-movement
+Given the game is suspended,
+  and the Pacman's previous action was 'no-movement';
+When I press undo;
+Then the Pacman does not move,
+  the ghosts undo position to one time unit ago.
+
+Scenario S7.4: Undo Up
+Given the game is paused,
+    and the Pacman's previous action is moving up,
+When I press undo;
+    Then move Pacman down by 1 time unit,
+If the Pacman ate anything:
+ Then the food is put back,
+ and points are reversed,
+ and the ghosts undo position to one time unit ago.
+
+Scenario S7.5: Undo Down.
+Given the game is paused,
+  and the Pacman's previous action is moving down,
+When I press undo;
+Then move Pacman up by 1 time unit,
+If the Pacman ate anything:
+  Then the food is put back,
+  and points are reversed,
+  and the ghosts undo position to one time unit ago.
+
+Scenario S7.6: The player moves
+Given the pacman die;
+When I press undo;
+Then my Pacman back to its place before it dies,
+  and points go back if my Pacman ate anything,
+  and food puts back if my Pacman ate it,
+  and the ghosts move back to the place before my Pacman dies.
+
+Scenario S7.7: The player undos
+When the pacman/ghost move,
+Then the x-y location of the pacman/ghost will be recorded in an array.
+When the player presses "undo",
+Then everything will be returned to their location at that point.
+
+Scenario S7.8: The player redos
+Given that I have undone one or more moves,
+  and that I have not made any new moves since;
+When I redo;
+Then the state of the game will progress forwards to redo the undone action.
+
+Scenario S7.9: The player redos through history
+When a move being undone occurs,
+  and a history of moves is tracked;
+Then the player can step through the history,
+  and redo their undone moves.
+
