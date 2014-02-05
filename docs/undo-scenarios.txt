@@ -34,7 +34,7 @@ Scenario S7.4: Undo Up
 Given the game is paused,
     and the Pacman's previous action is moving up,
 When I press undo;
-    Then move Pacman down by 1 time unit,
+    Then move Pacman back down,
 If the Pacman ate anything:
  Then the food is put back,
  and points are reversed,
@@ -44,7 +44,7 @@ Scenario S7.5: Undo Down.
 Given the game is paused,
   and the Pacman's previous action is moving down,
 When I press undo;
-Then move Pacman up by 1 time unit,
+Then move Pacman back up,
 If the Pacman ate anything:
   Then the food is put back,
   and points are reversed,
