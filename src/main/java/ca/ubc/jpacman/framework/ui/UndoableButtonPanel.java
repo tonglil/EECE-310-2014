@@ -23,6 +23,7 @@ public class UndoableButtonPanel extends ButtonPanel {
 		undoButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				getPacmanInteractor().stop();
 				getPacmanInteractor().undo();
 			}
 		});
