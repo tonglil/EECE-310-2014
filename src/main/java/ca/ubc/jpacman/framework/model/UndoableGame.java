@@ -7,6 +7,7 @@ import org.jpacman.framework.model.Ghost;
 public class UndoableGame extends Game {
 	public void undo() {
 		// TODO Auto-generated method stub
+		System.out.println("UndoableGame");
 	}
 
 	@Override

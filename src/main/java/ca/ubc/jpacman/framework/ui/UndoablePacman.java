@@ -17,6 +17,7 @@ public class UndoablePacman extends MainUI {
 
 	public void undo() {
 		// TODO Auto-generated method stub
+		System.out.println("UndoablePacman");
 	}
 
 	@Override
@@ -24,6 +25,7 @@ public class UndoablePacman extends MainUI {
 		withFactory(new UndoableGameFactory());
 		this.buttonPanel = new UndoableButtonPanel();
 		withButtonPanel(getButtonPanel());
+		withModelInteractor(new UndoablePacmanInteraction());
 		return super.initialize();
 	}
 
