@@ -30,6 +30,15 @@ public class UndoStoryTest extends MovePlayerStoryTest {
         return pacman;
     }
 
+    // Scenario S7.1: Undo left
+    // Given the game is suspended,
+    // and the Pacman's previous action was 'move left';
+    // When I press undo;
+    // Then the Pacman moves back right,
+    // if the Pacman ate anything:
+    // the food is put back,
+    // points are reversed,
+    // the ghosts undo position to one time unit ago.
     @Test
     public void test_S7_1_UndoPlayerLeft() {
         Tile PlayerTile = tileAt(1, 1);
@@ -45,6 +54,15 @@ public class UndoStoryTest extends MovePlayerStoryTest {
         assertEquals(GhostTile, theGhost().getTile());
     }
 
+    // Scenario S7.2: Undo Right
+    // Given the game is suspended,
+    // and the Pacman's previous action was 'move right';
+    // When I press undo;
+    // Then the Pacman moves back left,
+    // if the Pacman ate anything:
+    // the food is put back,
+    // points are reversed,
+    // the ghosts undo position to one time unit ago.
     @Test
     public void test_S7_2_UndoPlayerRight() {
         Tile PlayerTile = tileAt(1, 1);
@@ -61,6 +79,12 @@ public class UndoStoryTest extends MovePlayerStoryTest {
         assertEquals(GhostTile, theGhost().getTile());
     }
 
+    // Scenario S7.3: Undo No-movement
+    // Given the game is suspended,
+    // and the Pacman's previous action was 'no-movement';
+    // When I press undo;
+    // Then the Pacman does not move,
+    // the ghosts undo position to one time unit ago.
     @Test
     public void test_S7_3_UndoPlayerNoMovement() {
         Tile PlayerTile = tileAt(1, 1);
@@ -78,6 +102,15 @@ public class UndoStoryTest extends MovePlayerStoryTest {
         assertEquals(GhostTile, theGhost().getTile());
     }
 
+    // Scenario S7.4: Undo Up
+    // Given the game is paused,
+    // and the Pacman's previous action is moving up,
+    // When I press undo;
+    // Then move Pacman back down,
+    // If the Pacman ate anything:
+    // Then the food is put back,
+    // and points are reversed,
+    // and the ghosts undo position to one time unit ago.
     @Test
     public void test_S7_4_UndoPlayerUp() {
         Tile PlayerTile = tileAt(1, 1);
@@ -96,6 +129,15 @@ public class UndoStoryTest extends MovePlayerStoryTest {
         assertEquals(GhostTile, theGhost().getTile());
     }
 
+    // Scenario S7.5: Undo Down.
+    // Given the game is paused,
+    // and the Pacman's previous action is moving down,
+    // When I press undo;
+    // Then move Pacman back up,
+    // If the Pacman ate anything:
+    // Then the food is put back,
+    // and points are reversed,
+    // and the ghosts undo position to one time unit ago.
     @Test
     public void test_S7_5_UndoPlayerDown() {
         Tile Point1Tile = tileAt(0, 2);
@@ -116,6 +158,13 @@ public class UndoStoryTest extends MovePlayerStoryTest {
 
     }
 
+    // Scenario S7.6: The player dies
+    // Given the pacman dies;
+    // When I press undo;
+    // Then my Pacman back to its place before it dies,
+    // and points go back if my Pacman ate anything,
+    // and food puts back if my Pacman ate it,
+    // and the ghosts move back to the place before my Pacman dies.
     @Test
     public void test_S7_6_UndoPlayerDies() {
         Tile PlayerTile = tileAt(1, 1);
@@ -131,6 +180,13 @@ public class UndoStoryTest extends MovePlayerStoryTest {
         assertEquals(GhostTile, theGhost().getTile());
     }
 
+    // Scenario S7.6: The player wins
+    // Given the pacman wins;
+    // When I press undo;
+    // Then my Pacman back to its place before it wins,
+    // and points go back if my Pacman ate anything,
+    // and food puts back if my Pacman ate it,
+    // and the ghosts move back to the place before my Pacman wins.
     @Test
     public void test_S7_7_UndoPlayerWins() {
         Tile PlayerTile = tileAt(1, 1);
