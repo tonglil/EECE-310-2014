@@ -1,6 +1,5 @@
 package ca.ubc.jpacman.framework.model;
 
-import java.util.List;
 import java.util.Stack;
 
 import org.jpacman.framework.model.Direction;
