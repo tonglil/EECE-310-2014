@@ -2,9 +2,10 @@ package ca.ubc.jpacman.framework.model;
 
 import java.util.Stack;
 
-import org.jpacman.framework.model.Direction;
 import org.jpacman.framework.model.Game;
+import org.jpacman.framework.model.Direction;
 import org.jpacman.framework.model.Ghost;
+import org.jpacman.framework.model.Player;
 
 public class UndoableGame extends Game {
     private Stack<GameFrame> frames = new Stack<GameFrame>();
@@ -22,17 +23,26 @@ public class UndoableGame extends Game {
 
     @Override
     public void movePlayer(Direction dir) {
-        super.movePlayer(dir);
         System.out.println("====================");
         System.out.println("Player pushing new game frame into the frames stack");
         System.out.println("====================");
         frames.push(new GameFrame(this));
+        super.movePlayer(dir);
     }
 
     @Override
     public void moveGhost(Ghost theGhost, Direction dir) {
-        super.moveGhost(theGhost, dir);
         System.out.println("Ghost pushing new game frame into the frames stack");
+        frames.push(new GameFrame(this));
+        super.moveGhost(theGhost, dir);
+    }
+
+    @Override
+    public void addPlayer(Player p) {
+        super.addPlayer(p);
+        System.out.println("====================");
+        System.out.println("!!!!Push the first game frame into the frames stack");
+        System.out.println("====================");
         frames.push(new GameFrame(this));
     }
 }

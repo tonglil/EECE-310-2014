@@ -37,8 +37,10 @@ public class GameFrame {
         }
 
         //Set position
-        player.deoccupy();
-        player.occupy(this.player.getTile());
+        if (this.player.getTile() != null) {
+            player.deoccupy();
+            player.occupy(this.player.getTile());
+        }
         player.setDirection(this.player.getDirection());
 
         //Set ghosts
