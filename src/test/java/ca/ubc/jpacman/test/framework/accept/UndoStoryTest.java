@@ -2,9 +2,10 @@ package ca.ubc.jpacman.test.framework.accept;
 
 import org.jpacman.framework.model.Direction;
 
-import org.jpacman.framework.model.Tile;
 import ca.ubc.jpacman.framework.ui.UndoablePacman;
 import ca.ubc.jpacman.test.framework.ui.MovePlayerStoryTest;
+import org.jpacman.framework.factory.FactoryException;
+import org.jpacman.framework.model.Tile;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -14,7 +15,11 @@ public class UndoStoryTest extends MovePlayerStoryTest {
     @Override
     public UndoablePacman makeUI(){
         pacman = new UndoablePacman();
-        return pacman;
+        try {
+            return (UndoablePacman) pacman.initialize();
+        } catch (FactoryException e) {
+            return null;
+        }
     }
 
     @Override
