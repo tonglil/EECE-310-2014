@@ -10,18 +10,26 @@ import org.jpacman.framework.model.Ghost;
 //import org.jpacman.framework.model.Tile;
 
 public class GameFrame {
-    private Player player;
+    private UndoPlayer player;
     private List<Ghost> ghosts;
 
     //private Level level;
     //private Tile tile;
 
     public GameFrame(UndoableGame game) {
-        this.player = game.getPlayer();
-        this.ghosts = game.getGhosts();
+        this.player = new UndoPlayer(game.getPlayer());
+        System.out.println("constructor: player has " + player.getPoints() + " points");
+        ghosts = game.getGhosts();
     }
 
     public void set(UndoableGame game) {
+        Player player = game.getPlayer();
+        System.out.println("set: player had " + this.player.getPoints() + " points");
+        //set the player's points back
+        player.deoccupy();
+        player.occupy(this.player.getTile());
+        System.out.println("tile is " + this.player.getTile());
+        player.setDirection(this.player.getDirection());
         System.out.println("setting the game back to previous state");
         //read the information and set the players and ghosts
     }

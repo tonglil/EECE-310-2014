@@ -12,8 +12,13 @@ public class UndoableGame extends Game {
 
     public void undo() {
         System.out.println("UndoableGame");
-        GameFrame frame = this.frames.pop();
-        frame.set(this);
+        if (!frames.empty()) {
+            GameFrame frame = this.frames.pop();
+            frame.set(this);
+            notifyViewers();
+        } else {
+            System.out.println("Disable user from undoing");
+        }
     }
 
     @Override
