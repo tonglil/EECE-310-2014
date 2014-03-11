@@ -1,12 +1,18 @@
 package ca.ubc.jpacman.framework.model;
 
+import java.util.List;
+import java.util.Stack;
+
 import org.jpacman.framework.model.Direction;
 import org.jpacman.framework.model.Game;
 import org.jpacman.framework.model.Ghost;
 
 public class UndoableGame extends Game {
+    private Stack<GameFrame> frames = new Stack<GameFrame>();
+
     public void undo() {
-        // TODO Auto-generated method stub
+        GameFrame frame = this.frames.pop();
+        frame.set(this);
     }
 
     @Override
