@@ -33,7 +33,7 @@ public class UndoableGame extends Game {
     @Override
     public void moveGhost(Ghost theGhost, Direction dir) {
         System.out.println("Ghost pushing new game frame into the frames stack");
-        frames.push(new GameFrame(this));
+        //frames.push(new GameFrame(this));
         super.moveGhost(theGhost, dir);
     }
 
