@@ -26,10 +26,10 @@ public class GameFrame {
         Player player = game.getPlayer();
         System.out.println("set: player had " + this.player.getPoints() + " points");
         //set the player's points back
+        player.deoccupy();
+        player.occupy(this.player.getTile());
+        System.out.println("tile is " + this.player.getTile());
         player.setDirection(this.player.getDirection());
-        //get tile
-        //occupy the tile
-        //deoccupy
         System.out.println("setting the game back to previous state");
         //read the information and set the players and ghosts
     }

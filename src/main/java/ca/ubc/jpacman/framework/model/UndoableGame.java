@@ -15,6 +15,7 @@ public class UndoableGame extends Game {
         if (!frames.empty()) {
             GameFrame frame = this.frames.pop();
             frame.set(this);
+            notifyViewers();
         } else {
             System.out.println("Disable user from undoing");
         }
