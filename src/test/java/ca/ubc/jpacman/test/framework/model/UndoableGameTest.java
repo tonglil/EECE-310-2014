@@ -16,7 +16,6 @@ import ca.ubc.jpacman.framework.factory.UndoableGameFactory;
 import ca.ubc.jpacman.framework.model.UndoableGame;
 
 public class UndoableGameTest extends GameTest {
-
     @Override
     public UndoableGameFactory makeFactory() {
         return new UndoableGameFactory();
@@ -122,5 +121,4 @@ public class UndoableGameTest extends GameTest {
         UndoGame.undo();
         assertEquals(tileAt(UndoGame, 0, 0), theGhost.getTile());
     }
-
 }

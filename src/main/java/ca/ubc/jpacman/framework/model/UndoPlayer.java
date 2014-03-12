@@ -22,21 +22,21 @@ public class UndoPlayer extends Player {
 
     @Override
     public int getPoints() {
-        return points;
+        return this.points;
     }
 
     @Override
     public boolean isAlive() {
-        return alive;
+        return this.alive;
     }
 
     @Override
     public Direction getDirection() {
-        return direction;
+        return this.direction;
     }
 
     @Override
     public Tile getTile() {
-        return tile;
+        return this.tile;
     }
 }

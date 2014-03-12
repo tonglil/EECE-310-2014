@@ -13,14 +13,13 @@ public class GameFrame {
     private Stack<Tile> ghosts = new Stack<Tile>();
 
     public GameFrame(UndoableGame game) {
+        // Save the player
         this.player = new UndoPlayer(game.getPlayer());
 
+        // Save the ghosts' positions
         for (Ghost ghost : game.getGhosts()) {
             this.ghosts.add(ghost.getTile());
         }
-        // for (int i = 0; i < game.getGhosts().size(); i++) {
-        // this.ghosts.push(game.getGhosts().get(i).getTile());
-        // }
     }
 
     public void set(UndoableGame game) {
@@ -48,11 +47,8 @@ public class GameFrame {
             ghost.deoccupy();
             ghost.occupy(this.ghosts.get(i++));
         }
-        // for (int i = 0; i < game.getGhosts().size(); i++) {
-        // Ghost ghost = game.getGhosts().get(i);
-        // ghost.deoccupy();
-        // ghost.occupy(this.ghosts.get(i));
-        // }
+
+        // Make sure the player is still alive
         if (!player.isAlive())
             player.resurrect();
     }

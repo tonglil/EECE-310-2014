@@ -15,8 +15,6 @@ public class UndoablePacman extends MainUI {
     }
 
     public void undo() {
-        // TODO Auto-generated method stub
-        // System.out.println("UndoablePacman");
         getGame().undo();
     }
 

@@ -8,7 +8,6 @@ import org.jpacman.test.framework.accept.AbstractAcceptanceTest;
 import org.junit.Test;
 
 public class MovePlayerStoryTest extends AbstractAcceptanceTest {
-
     @Test
     public void test_S2_1_PlayerMoves() {
         Tile emptyTile = tileAt(1, 0);
