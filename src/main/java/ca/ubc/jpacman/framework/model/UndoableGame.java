@@ -1,6 +1,7 @@
 package ca.ubc.jpacman.framework.model;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 import org.jpacman.framework.model.Direction;
 import org.jpacman.framework.model.Game;
@@ -8,12 +9,16 @@ import org.jpacman.framework.model.Ghost;
 import org.jpacman.framework.model.Player;
 
 public class UndoableGame extends Game {
-    private Stack<GameFrame> frames = new Stack<GameFrame>();
+    private Deque<GameFrame> frames = new ArrayDeque<GameFrame>();
 
     public void undo() {
         System.out.println("UndoableGame");
-        if (!frames.empty()) {
+        if (frames.size() > 1) {
             GameFrame frame = this.frames.pop();
+            frame.set(this);
+            notifyViewers();
+        } else if (frames.size() == 1) {
+            GameFrame frame = this.frames.peekFirst();
             frame.set(this);
             notifyViewers();
         } else {
