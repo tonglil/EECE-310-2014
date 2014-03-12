@@ -22,10 +22,10 @@ public class UndoablePacman extends MainUI {
 
     @Override
     public MainUI initialize() throws FactoryException {
-        withFactory(new UndoableGameFactory());
         this.buttonPanel = new UndoableButtonPanel();
         withButtonPanel(getButtonPanel());
         withModelInteractor(new UndoablePacmanInteraction());
+        withFactory(new UndoableGameFactory());
         return super.initialize();
     }
 
