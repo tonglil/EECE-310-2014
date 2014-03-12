@@ -16,16 +16,16 @@ public class UndoablePacman extends MainUI {
 
     public void undo() {
         // TODO Auto-generated method stub
-        System.out.println("UndoablePacman");
+        // System.out.println("UndoablePacman");
         getGame().undo();
     }
 
     @Override
     public MainUI initialize() throws FactoryException {
-        withFactory(new UndoableGameFactory());
         this.buttonPanel = new UndoableButtonPanel();
         withButtonPanel(getButtonPanel());
         withModelInteractor(new UndoablePacmanInteraction());
+        withFactory(new UndoableGameFactory());
         return super.initialize();
     }
 
