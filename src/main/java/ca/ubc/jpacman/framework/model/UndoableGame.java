@@ -14,12 +14,11 @@ public class UndoableGame extends Game {
         if (frames.size() > 1) {
             GameFrame frame = this.frames.pop();
             frame.set(this);
-            notifyViewers();
         } else if (frames.size() == 1) {
             GameFrame frame = this.frames.peekFirst();
             frame.set(this);
-            notifyViewers();
         }
+        notifyViewers();
     }
 
     @Override
