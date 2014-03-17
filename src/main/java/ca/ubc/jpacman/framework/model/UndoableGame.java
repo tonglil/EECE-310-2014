@@ -11,6 +11,7 @@ public class UndoableGame extends Game {
     private Deque<GameFrame> frames = new ArrayDeque<GameFrame>();
 
     public void undo() {
+    	
         if (frames.size() > 1) {
             GameFrame frame = this.frames.pop();
             frame.set(this);
@@ -21,6 +22,7 @@ public class UndoableGame extends Game {
         notifyViewers();
     }
 
+    
     @Override
     public void movePlayer(Direction dir) {
         frames.push(new GameFrame(this));
@@ -28,7 +30,7 @@ public class UndoableGame extends Game {
     }
 
     /*
-     *Save the first game frame
+     *@Save the first game frame
      */
     @Override
     public void addPlayer(Player p) {
