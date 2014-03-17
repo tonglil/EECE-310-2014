@@ -27,29 +27,38 @@ public class GameFrame {
         PointManager pm = game.getPointManager();
 
         // Set points
+        setPoints(player, pm);
+        // Set position
+        setPosition(player);
+        // Set ghosts
+        setGhosts(game);
+        // Make sure the player is still alive
+        if (!player.isAlive())
+            player.resurrect();
+    }
+    
+    public void setPoints(Player player, PointManager pm) {
         int restore = this.player.getPoints() - player.getPoints();
         if (restore != 0) {
             pm.consumePointsOnBoard(player, restore);
             Food food = new Food();
             food.occupy(player.getTile());
         }
-
-        // Set position
+    }
+    
+    public void setPosition(Player player) {
         if (this.player.getTile() != null) {
             player.deoccupy();
             player.occupy(this.player.getTile());
         }
         player.setDirection(this.player.getDirection());
-
-        // Set ghosts
+    }
+    
+    public void setGhosts(UndoableGame game) {
         int i = 0;
         for (Ghost ghost : game.getGhosts()) {
             ghost.deoccupy();
             ghost.occupy(this.ghosts.get(i++));
         }
-
-        // Make sure the player is still alive
-        if (!player.isAlive())
-            player.resurrect();
     }
 }
