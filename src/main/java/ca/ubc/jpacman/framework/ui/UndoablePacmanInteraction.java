@@ -8,6 +8,7 @@ public class UndoablePacmanInteraction extends PacmanInteraction {
     public void undo() {
         // We will need to update the state of the game without passing state
         updateState();
-        ((UndoableGame) getGame()).undo();
+        UndoableGame game =  (UndoableGame)this.getGame();
+        game.undo();
     }
 }
