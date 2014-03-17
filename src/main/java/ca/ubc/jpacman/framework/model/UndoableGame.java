@@ -21,16 +21,21 @@ public class UndoableGame extends Game {
             notifyViewers();
         }
     }
-
+    
+    /**
+	 * Move the player in the given direction
+	 * @param dir Direction to move the player
+	 */
     @Override
     public void movePlayer(Direction dir) {
         frames.push(new GameFrame(this));
         super.movePlayer(dir);
     }
 
-    /*
-     *Save the first game frame
-     */
+    /**
+   	 * Saves the first game frame
+   	 * @param p Player
+   	 */
     @Override
     public void addPlayer(Player p) {
         super.addPlayer(p);
