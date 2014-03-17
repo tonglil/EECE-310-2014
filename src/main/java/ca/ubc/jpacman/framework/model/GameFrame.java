@@ -28,7 +28,7 @@ public class GameFrame {
 	 * @param game
 	 *            UndoableGame
 	 */
-	public void set(UndoableGame game) {
+	public void setNewGameFrame(UndoableGame game) {
 		Player player = game.getPlayer();
 		PointManager pm = game.getPointManager();
 
