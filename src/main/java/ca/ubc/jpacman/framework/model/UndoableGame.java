@@ -23,7 +23,7 @@ public class UndoableGame extends Game {
 
 	/**
 	 * Move the player in the given direction
-	 * 
+	 *
 	 * @param dir
 	 *            Direction to move the player
 	 */
@@ -35,7 +35,7 @@ public class UndoableGame extends Game {
 
 	/**
 	 * Saves the first game frame
-	 * 
+	 *
 	 * @param p
 	 *            Player
 	 */
