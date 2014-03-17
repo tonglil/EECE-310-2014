@@ -14,16 +14,17 @@ public class UndoableGame extends Game {
 		if (frames.size() > 1) {
 			GameFrame frame = this.frames.pop();
 			frame.setNewGameFrame(this);
+			notifyViewers();
 		} else if (frames.size() == 1) {
 			GameFrame frame = this.frames.peekFirst();
 			frame.setNewGameFrame(this);
+			notifyViewers();
 		}
-		notifyViewers();
 	}
 
 	/**
 	 * Move the player in the given direction
-	 *
+	 * 
 	 * @param dir
 	 *            Direction to move the player
 	 */
@@ -35,7 +36,7 @@ public class UndoableGame extends Game {
 
 	/**
 	 * Saves the first game frame
-	 *
+	 * 
 	 * @param p
 	 *            Player
 	 */
